@@ -1,6 +1,5 @@
-\documentclass{letter}
+\documentclass[letterpaper, 12pt]{letter}
 \usepackage{wallpaper}
-\usepackage{geometry}
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage[T1]{fontenc}
@@ -8,34 +7,27 @@
 \usepackage{fontawesome5}
 \usepackage{hyperref}
 \usepackage[none]{hyphenat}
-
 \renewcommand{\familydefault}{\sfdefault}
-
-\geometry{
-  paperwidth=\dimexpr\textwidth+\marginparsep+\marginparwidth\relax,
-  paperheight=\dimexpr\textheight+\footskip\relax,
-  left=20pt,
-  right=20pt,
-  top=0pt,
-  bottom=0pt,
-  nohead,
-  nofoot,
-  nomarginpar
-}
-
-\ThisCenterWallPaper{1.5}{data/cvbg.png}
+\usepackage[margin=0cm, noheadfoot]{geometry}
 
 \begin{document}
 
-\begin{minipage}[t]{0.40\textwidth}
+\begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north west, inner sep=0pt, outer sep=0pt]
+          at (current page.north west)
+          {\includegraphics[width=\paperwidth, height=\paperheight]{data/cvbg.png}};
+\end{tikzpicture}
+
+\hspace*{0.6cm}
+\begin{minipage}[t]{0.3\textwidth}
 \setlength{\baselineskip}{1.5\baselineskip}
 \color{white}
 
-\hspace{0.7cm}
+\hspace{0.04cm}
 \begin{tikzpicture}
-    \draw[line width=2pt] (0.05, 1) circle (2cm);
-    \clip (0.05,1) circle (2cm);
-    \node[inner sep=0pt, scale=1.5] (image)
+    \draw[line width=3pt] (0.05, 1) circle (2.7cm);
+    \clip (0.05,1) circle (2.7cm);
+    \node[inner sep=0pt, scale=2] (image)
         {\includegraphics[width=3cm]{data/self.jpeg}};
 \end{tikzpicture}
 
@@ -43,37 +35,40 @@
 
 \faPhone \quad +7-910-350-06-98
 
-\faEnvelope \quad \href{mailto:tolik_rogov@bk.ru}{tolik\_rogov@bk.ru}
+\faEnvelope \quad \href{mailto:rogov.ai@phystech.edu}{rogov.ai@phystech.edu}
 
-\faMapMarker \quad Moscow
+\faMapMarker \quad Dolgoprudny, MIPT
 
 \rule{\linewidth}{0.4pt}
 
 {\large Links}
 
-\faGithub \quad \href{https://github.com/TolikRogov}{TolikRogov}
+\faGithub \quad \href{https://github.com/rogovogor17}{rogovogor17} \\
+\faTelegram \quad @rogovogor
 
 \rule{\linewidth}{0.4pt}
 
 {\large Skills}
 
-\faCode \quad C
+\faCode \quad C, C++
 
 \faCode \quad Asm
+
+\faCode \quad HTML
 
 \rule{\linewidth}{0.4pt}
 
 {\large Tools}
 
-\faCircleNotch  \quad git
+\faCircleNotch  \quad \LaTeX, git
 
-\faCircleNotch  \quad Make/Cmake
+\faCircleNotch  \quad Make, CMake
 
-\faCircleNotch  \quad Doxygen/Graphviz
+\faCircleNotch  \quad Doxygen, Graphviz
 
-\faCircleNotch  \quad radare2
+\faCircleNotch  \quad radare2, gdb
 
-\faCircleNotch  \quad \LaTeX
+\faCircleNotch  \quad Linux-Perf, Valgrind
 
 \rule{\linewidth}{0.4pt}
 
@@ -84,65 +79,76 @@
 \faLanguage \quad English B2
 
 \end{minipage}
-\hfill
-\begin{minipage}[t]{0.60\textwidth}
+\hspace*{0.5cm}
+\begin{minipage}[t]{0.6\textwidth}
 \setlength{\baselineskip}{1.5\baselineskip}
 \vspace{0.8cm}
 {\huge Rogov Anatoliy}
 
-{\large First year student of MIPT}
+{\large Second year student of MIPT}
 
 \vspace{0.5cm}
 
 {\large Projects}
+\vspace{0.1cm}
 \rule{\linewidth}{0.4pt}
 
-{\large \textbf{\href{https://github.com/TolikRogov/Language}{Language compiler}}}
+{\large \textbf{\href{https://github.com/rogovogor17/Language}{Language compiler}}}
 
-{\small December 2024 - Tools: C, Cmake, HTML, Graphviz}
+{\small December 2024 - June 2025, Tools: C, Assembler, CMake, HTML, Graphviz}
 
 \begin{itemize}
-    {\small
-    \item Created language specification
-    \item Lexical analysis with support for replacement table and detailed dump in debug mode
-    \item Recursive descent parsing
-    \item Support for tree standard
-    \item Performing optimizations using middleware
-    \item Representation in binary code for execution on the own \href{https://github.com/TolikRogov/Processor}{processor}
-    }
+    \item \small{Language specification}
+    \item Frontend: lexical and syntactic (recursive descent) analysis
+    \item MiddleEnd: supporting for tree standard, performing optimizations
+    \item Backend: representation in binary code for execution on the own \href{https://github.com/rogovogor17/Processor}{processor}
 \end{itemize}
 
-{\large \textbf{\href{https://github.com/TolikRogov/Mandelbrot}{Mandelbrot}}}
+{\large \textbf{\href{https://github.com/rogovogor17/Mandelbrot}{Mandelbrot}}}
 
-{\small March 2025 - Tools: C/C++, Cmake, \LaTeX}
+{\small March 2025, Tools: C, CMake, SFML, \LaTeX}
 
 \begin{itemize}
-    {\small
-    \item Constructing a fractal of the mandelbrot set with the SFML library
+    \item \small{Constructing a fractal of the mandelbrot set with the SFML library}
     \item SIMD (AVX) computation optimizations
     \item Comparison of program execution time depending on the optimization level
-    }
+\end{itemize}
+
+{\large \textbf{\href{https://github.com/rogovogor17/Hash-Table}{Hash-Table}}}
+
+{\small April 2025, Tools: C, CMake, Linux-Perf, Valgrind}
+
+\begin{itemize}
+    \item \small{Creating a hash table structure}
+    \item \small{Analyzing its performance and implementing of optimizations}
+\end{itemize}
+
+{\large \textbf{\href{https://github.com/rogovogor17/ONNX-Frontend}{ONNX-Frontend}}}
+
+{\small February 2026, Tools: C++, CMake, Graphviz}
+
+\begin{itemize}
+    \item \small{Parsing ONNX format file to upload ai model}
+    \item Dump Graphviz computational graph
 \end{itemize}
 
 {\large Education}
-\vspace{0.2cm}
+\vspace{0.4cm}
 \rule{\linewidth}{0.4pt}
 
 {\textbf{Moscow Institute of Physics and Technology (MIPT)}}\\
 \small Dolgoprudny, Russia, September 2024 - June 2028\\
 
-\small First year student of the Faculty of Radio Engineering and Computer Technologies. \textbf{GPA}: 8.1/10.0\\
+\small Second year student of the Faculty of Radio Engineering and Computer Technologies. \textbf{GPA}: 8.04/10.0\\
 
-{\textbf{System programming and compiler technology course (MIPT)}}\\
-\small Dolgoprudny, Russia, September 2024 - June 2025\\
+\textbf{System programming and compiler technology course (MIPT)}\\
+\small Dolgoprudny, Russia, September 2024 - June 2025, \textbf{GPA}: 9.0/10.0\\
 
-\small Completed the first semester with \textbf{GPA}: 10.0/10.0\\
+{\textbf{Introduction to tensor compilers course (MIPT)}}\\
+\small Dolgoprudny, Russia, February 2026 - May 2026\\
 
-{\large Achievements}
-\rule{\linewidth}{0.4pt}\\
-
-\textbf{Prize-winner of the 2nd degree in Informatics at the Engineering Olympiad of Central Russia}\\
-{\small Lipetsk, Russia, 2023}
+{\textbf{Introduction to computing systems architecture (MIPT)}}\\
+\small Dolgoprudny, Russia, February 2026 - May 2026\\
 
 \end{minipage}
 \end{document}
